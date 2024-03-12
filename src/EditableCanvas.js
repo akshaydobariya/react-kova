@@ -79,8 +79,7 @@ const EditableCanvas = () => {
           {imageObj && (
             <Image
               image={imageObj}
-              width={window.innerWidth}
-              height={window.innerWidth}
+             
             />
           )}
           {imageObj && (
@@ -89,7 +88,7 @@ const EditableCanvas = () => {
               closed
               fillPatternImage={textureImage}
               fillPatternOffset={{ x: 0, y: 0 }}
-              fillPatternScale={{ x: 0.1, y: 0.1 }}
+              fillPatternScale={{ x: 1, y: 1 }}
               // fillPatternRotation={0}
               // fillPatternX={0}
               // fillPatternY={0}

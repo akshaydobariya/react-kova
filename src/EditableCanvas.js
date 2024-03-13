@@ -8,6 +8,7 @@ const EditableCanvas = () => {
   const stageRef = useRef(null);
   const layerRef = useRef(null);
   const transformerRef = useRef(null);
+
   const [polygonPoints, setPolygonPoints] = useState([
     { x: 100, y: 50 },
     { x: 200, y: 50 },
@@ -16,6 +17,7 @@ const EditableCanvas = () => {
     { x: 50, y: 150 },
     { x: 60, y: 50 },
   ]);
+  console.log(polygonPoints);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -53,6 +55,7 @@ const EditableCanvas = () => {
       y: point.y + offsetY,
     }));
     setPolygonPoints(newPoints);
+
     line.x(0);
     line.y(0);
     transformerRef.current.nodes([]);
@@ -76,26 +79,24 @@ const EditableCanvas = () => {
         }}
       >
         <Layer ref={layerRef}>
-          {imageObj && (
-            <Image
-              image={imageObj}
-             
-            />
-          )}
+          {imageObj && <Image image={imageObj} />}
           {imageObj && (
             <Line
               points={polygonPoints.flatMap((point) => [point.x, point.y])}
               closed
               fillPatternImage={textureImage}
-              fillPatternOffset={{ x: 0, y: 0 }}
+              fillPatternOffset={{
+                x: polygonPoints[4].x,
+                y: polygonPoints[4].y,
+              }}
               fillPatternScale={{ x: 1, y: 1 }}
               // fillPatternRotation={0}
               // fillPatternX={0}
               // fillPatternY={0}
-              // fillPatternRepeat="no-repeat"
-              stroke="black"
+              fillPatternRepeat="no-repeat"
+              stroke={textureImage === null ? "black" : null}
               strokeWidth={2}
-              draggable
+              draggable={textureImage === null ? "black" : null}
               // fillPatternClipEnabled // Clip the texture image with the polygon shape
               onDragEnd={handleDragEnd}
             />
@@ -108,9 +109,10 @@ const EditableCanvas = () => {
                 y={point.y}
                 radius={5}
                 fill="blue"
-                draggable
+                draggable={textureImage === null ? true : false}
                 onDragEnd={(e) => {
                   const newPoints = polygonPoints.slice();
+
                   newPoints[index] = {
                     x: e.target.x(),
                     y: e.target.y(),

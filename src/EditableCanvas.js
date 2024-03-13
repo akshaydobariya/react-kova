@@ -89,11 +89,11 @@ const EditableCanvas = () => {
                 x: polygonPoints[4].x,
                 y: polygonPoints[4].y,
               }}
-              fillPatternScale={{ x: 1, y: 1 }}
+              fillPatternScale={{ x: 0.1, y: 0.1 }}
               // fillPatternRotation={0}
               // fillPatternX={0}
               // fillPatternY={0}
-              fillPatternRepeat="no-repeat"
+              //fillPatternRepeat="no-repeat"
               stroke={textureImage === null ? "black" : null}
               strokeWidth={2}
               draggable={textureImage === null ? "black" : null}

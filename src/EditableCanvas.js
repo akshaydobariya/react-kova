@@ -10,12 +10,12 @@ const EditableCanvas = () => {
   const transformerRef = useRef(null);
 
   const [polygonPoints, setPolygonPoints] = useState([
-    { x: 100, y: 50 },
+    { x: 150, y: 50 },
     { x: 200, y: 50 },
-    { x: 200, y: 150 },
-    { x: 150, y: 200 },
-    { x: 50, y: 150 },
-    { x: 60, y: 50 },
+    { x: 200, y: 100 },
+    { x: 150, y: 130 },
+    { x: 70, y: 100 },
+    { x: 80, y: 50 },
   ]);
   console.log(polygonPoints);
 

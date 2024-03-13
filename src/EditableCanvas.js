@@ -89,7 +89,7 @@ const EditableCanvas = () => {
                 x: polygonPoints[4].x,
                 y: polygonPoints[4].y,
               }}
-              fillPatternScale={{ x: 0.1, y: 0.1 }}
+              fillPatternScale={{ x: 0.15, y: 0.15 }}
               // fillPatternRotation={0}
               // fillPatternX={0}
               // fillPatternY={0}
